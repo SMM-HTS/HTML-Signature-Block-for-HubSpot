@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Mulcahy Signature</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        .signature-container {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            background: white;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e1e5eb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .signature-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        .signature-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3a7bd5, #00d2ff);
+        }
+        .signature-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 25px;
+        }
+        .profile-container {
+            flex: 0 0 120px;
+            position: relative;
+        }
+        .profile-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .profile-container img:hover {
+            transform: scale(1.05);
+        }
+        .logo-container {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+        }
+        .logo-container img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+        }
+        .details-container {
+            flex: 1;
+            min-width: 250px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+        }
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #3a7bd5, #00d2ff);
+            border-radius: 3px;
+        }
+        .title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .contact-item i {
+            margin-right: 10px;
+            color: #3a7bd5;
+            width: 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .website {
+            color: #3a7bd5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .website:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .partnerships {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #e1e5eb;
+        }
+        .partnerships-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 15px;
+        }
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .partner-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e1e5eb;
+            transition: all 0.3s ease;
+        }
+        .partner-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .appointment-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #3a7bd5, #00d2ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+            animation: pulse 2s infinite;
+        }
+        .appointment-btn i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        .appointment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4);
+            background: linear-gradient(to right, #3498db, #00d2ff);
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(58, 123, 213, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(58, 123, 213, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(58, 123, 213, 0);
+            }
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            border: 1px solid #e1e5eb;
+        }
+        .social-icon:hover {
+            background: #3a7bd5;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 600px) {
+            .signature-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-container {
+                margin-bottom: 20px;
+            }
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="signature-container">
+        <div class="signature-flex">
+            <div class="profile-container">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Adam Mulcahy">
+                <div class="logo-container">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="e-Cruitment Logo">
+                </div>
+            </div>
+            <div class="details-container">
+                <div class="name">Adam Mulcahy</div>
+                <div class="title">Founder / Managing Director, e-Cruitment</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile: +61408-440-822</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: <a href="mailto:adamm@e-cruitment.com.au" class="website">adamm@e-cruitment.com.au</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Website: <a href="http://www.e-cruitment.com" target="_blank" class="website">www.e-cruitment.com</a></span>
+                    </div>
+                </div>
+                
+                <div class="partnerships">
+                    <div class="partnerships-title">Partnerships and Affiliations</div>
+                    <div class="partners-grid">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" class="partner-logo" alt="Partner 1">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" class="partner-logo" alt="Partner 2">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" class="partner-logo" alt="Partner 3">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" class="partner-logo" alt="Partner 4">
+                    </div>
+                </div>
+                
+                <a href="#" class="appointment-btn">
+                    <i class="fas fa-calendar-alt"></i>
+                    Click here to Schedule an Appointment
+                </a>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signature = document.querySelector('.signature-container');
+            signature.style.opacity = '0';
+            signature.style.transform = 'translateY(20px)';
+            signature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            setTimeout(() => {
+                signature.style.opacity = '1';
+                signature.style.transform = 'translateY(0)';
+            }, 100);
+            
+            document.querySelectorAll('.contact-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-10px)';
+                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 200 + (index * 100));
+            });
+            
+            const btn = document.querySelector('.appointment-btn');
+            btn.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'pulse 2s infinite';
+                }, 10);
+            });
+            
+            const partnerLogos = document.querySelectorAll('.partner-logo');
+            partnerLogos.forEach((logo, index) => {
+                logo.style.opacity = '0';
+                logo.style.transform = 'scale(0.8)';
+                logo.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                setTimeout(() => {
+                    logo.style.opacity = '1';
+                    logo.style.transform = 'scale(1)';
+                }, 400 + (index * 100));
+            });
+        });
+    </script>
+</body>
+</html>
